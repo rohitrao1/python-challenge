@@ -28,11 +28,12 @@ with open(budget_data, newline = "") as csvfile:
         total_pl = total_pl + int(row[1])
 
         #Average change in "Profit/Losses between months over entire period"
-        
+
         #Greatest increase in profits 
         #Greatest decrease in profits 
 
 #Displaying information
+total_months = len(csvreader)
 print("Financial Analysis")
 print("---------------------")
 print("Total Months: " + str(total_months))
