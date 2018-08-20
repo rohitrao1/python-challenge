@@ -7,8 +7,7 @@ budget_data = os.path.join("budget_data.csv")
 
 total_months = 0
 total_pl = 0
-changes = [0]
-avg_change = 0
+change = 0
 greatest_increase = 0
 greatest_decrease = 0
 
@@ -24,16 +23,18 @@ with open(budget_data, newline = "") as csvfile:
     for row in csvreader:
         
         #Total number of months
+        total_months += 1
+
         #Total net amount of "Profit/Losses over entire period"
         total_pl = total_pl + int(row[1])
 
-        #Average change in "Profit/Losses between months over entire period"
-
         #Greatest increase in profits 
+
         #Greatest decrease in profits 
 
+#Average change in "Profit/Losses between months over entire period"
+
 #Displaying information
-total_months = len(csvreader)
 print("Financial Analysis")
 print("---------------------")
 print("Total Months: " + str(total_months))
