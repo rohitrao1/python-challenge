@@ -28,7 +28,7 @@ with open(budget_data, newline = "") as csvfile:
         total_pl = total_pl + int(row[1])
 
         #Average change in "Profit/Losses between months over entire period"
-
+        
         #Greatest increase in profits 
         #Greatest decrease in profits 
 
@@ -36,8 +36,8 @@ with open(budget_data, newline = "") as csvfile:
 print("Financial Analysis")
 print("---------------------")
 print("Total Months: " + str(total_months))
-print("Total: " + str(total_pl))
-print("Average Change: " + str(avg_change))
+print("Total: $" + str(total_pl))
+print("Average Change: $" + str(avg_change))
 print("Greatest Increase in Profits: ")
 print("Greatest Decrease in Profits: ")
 
