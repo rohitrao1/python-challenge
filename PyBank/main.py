@@ -15,6 +15,11 @@ with open(budget_data, newline = "") as csvfile:
 
     #Going through each row of data after the header
     for row in csvreader:
-
+        
+        #Total number of months
+        #Total net amount of "Profit/Losses over entire period"
+        #Average change in "Profit/Losses between months over entire period"
+        #Greatest increase in profits 
+        #Greatest decrease in profits 
         
 
