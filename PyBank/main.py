@@ -7,7 +7,9 @@ budget_data = os.path.join("budget_data.csv")
 
 total_months = 0
 total_pl = 0
+value = 0
 change = 0
+profits = []
 greatest_increase = 0
 greatest_decrease = 0
 
@@ -26,7 +28,10 @@ with open(budget_data, newline = "") as csvfile:
         2. Find the max increase & max decrease 
         3. Return values based on the indexes of 
         '''
-        change = change + row[1]-(row+1)[1]
+        # Calculate the change, then add it to list of changes
+        change = row[1]-value
+        profits.append(change)
+        value = row[1]
         
         #Total number of months
         total_months += 1
@@ -34,7 +39,8 @@ with open(budget_data, newline = "") as csvfile:
         #Total net amount of "Profit/Losses over entire period"
         total_pl = total_pl + int(row[1])
 
-        #Greatest increase in profits 
+        #Greatest increase in profits
+         
 
         #Greatest decrease in profits 
 
