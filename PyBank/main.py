@@ -59,8 +59,12 @@ print("---------------------")
 print("Total Months: " + str(total_months))
 print("Total: $" + str(total_pl))
 print("Average Change: $" + str(avg_change))
-print("Greatest Increase in Profits: " + greatest_date + "(" + str(greatest_increase) + ")")
-print("Greatest Decrease in Profits: " + str(greatest_decrease))
+print("Greatest Increase in Profits: " + greatest_date + " ($" + str(greatest_increase) + ")")
+print("Greatest Decrease in Profits: " + worst_date + " ($" + str(greatest_decrease) + ")")
 
-        
+'''What's Left: 
+1. Fixing "Average Change"
+2. Pulling/pushing to Github (Save this file to desktop + Pull + Copy-paste code + Push)
+3. Exporting to txt file ***
+'''
 
