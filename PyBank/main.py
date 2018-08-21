@@ -10,8 +10,6 @@ total_pl = 0
 value = 0
 change = 0
 profits = []
-greatest_increase = 0
-greatest_decrease = 0
 
 #Opening and reading the CSV file
 with open(budget_data, newline = "") as csvfile:
@@ -39,12 +37,14 @@ with open(budget_data, newline = "") as csvfile:
         #Total net amount of "Profit/Losses over entire period"
         total_pl = total_pl + int(row[1])
 
-        #Greatest increase in profits
-         
+    #Greatest increase in profits
+    greatest_increase = max(profits)
 
-        #Greatest decrease in profits 
+    #Greatest decrease (lowest increase) in profits 
+    greatest_decrease = min(profits)
 
     #Average change in "Profit/Losses between months over entire period"
+    avg_change = sum(profits)/len(profits)
 
 #Displaying information
 print("Financial Analysis")
