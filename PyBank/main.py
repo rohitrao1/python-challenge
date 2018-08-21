@@ -21,7 +21,11 @@ with open(budget_data, newline = "") as csvfile:
     
     #Going through each row of data after the header
     for row in csvreader:
-        
+        '''To Do: 
+        1. Create a list to capture all changes
+        2. Find the max increase & max decrease 
+        3. Return values based on the indexes of 
+        '''
         change = change + row[1]-(row+1)[1]
         
         #Total number of months
