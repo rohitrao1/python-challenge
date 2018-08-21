@@ -22,6 +22,8 @@ with open(budget_data, newline = "") as csvfile:
     #Going through each row of data after the header
     for row in csvreader:
         
+        change = change + row[1]-(row+1)[1]
+        
         #Total number of months
         total_months += 1
 
@@ -32,7 +34,7 @@ with open(budget_data, newline = "") as csvfile:
 
         #Greatest decrease in profits 
 
-#Average change in "Profit/Losses between months over entire period"
+    #Average change in "Profit/Losses between months over entire period"
 
 #Displaying information
 print("Financial Analysis")
