@@ -29,6 +29,7 @@ with open(budget_data, newline = "") as csvfile:
         '''
         # Keeping track of the dates
         dates.append(row[0])
+        
         # Calculate the change, then add it to list of changes
         change = int(row[1])-value
         profits.append(change)
@@ -65,6 +66,6 @@ print("Greatest Decrease in Profits: " + worst_date + " ($" + str(greatest_decre
 '''What's Left: 
 1. Fixing "Average Change"
 2. Pulling/pushing to Github (Save this file to desktop + Pull + Copy-paste code + Push)
-3. Exporting to txt file ***
+3. Exporting to txt file
 '''
 
