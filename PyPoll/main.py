@@ -3,8 +3,37 @@ import csv
 
 election_data = os.path.join("election_data.csv")
 
+# Method 1 --> Automated (and dynamic)
+total_votes = 0
+candidates = []
+votes = []
+voting_dict = {}
 
-#Method 1 --> Dictionaries
+with open(election_data, newline = "") as csvfile:
+    csvreader = csv.reader(csvfile, delimiter = ",")
+
+    csv_header = next(csvreader)
+    
+    for row in csvreader:
+        candidates.append(row[2])
+
+    #List of unique values (in case candidates change)
+    candidates = list(set(candidates))
+    #Creating a dictionary
+    for candidate in candidates:
+        voting_dict[candidate] = [0,0.0]
+
+    #Adds up number of votes for each candidate, then adds to dictionary
+    for row in csvreader:
+        for votes in voting_dict:
+            if votes == row[2]:
+                voting_dict[votes][0] += 1
+
+    print(voting_dict)
+
+    
+'''
+#Method 2 --> Dictionaries
 total_votes = 0
 voting_dict = {"Khan":[0,0.0], "Correy":[0,0.0], "Li": [0,0.0], "O-Tooley":[0,0.0]}
 
@@ -30,6 +59,7 @@ voting_dict["Li"][1] = voting_dict["Li"][0]/total_votes
 voting_dict["O-Tooley"][1] = voting_dict["O-Tooley"][0]/total_votes
 
 print(voting_dict)
+'''
 
 '''
 Things To Do:
