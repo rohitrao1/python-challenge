@@ -1,7 +1,6 @@
 #Importing the necessary modules/libraries
 import os
 import csv
-import math
 
 #Creating an object out of the CSV file
 budget_data = os.path.join("budget_data.csv")
