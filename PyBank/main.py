@@ -21,6 +21,7 @@ with open(budget_data, newline = "") as csvfile:
     first_row = next(csvreader)
     total_months += 1
     total_pl += int(first_row[1])
+    value = int(first_row[1])
     # print(f"Header: {csv_header}")
     
     #Going through each row of data after the header
@@ -35,6 +36,7 @@ with open(budget_data, newline = "") as csvfile:
         
         # Calculate the change, then add it to list of changes
         change = int(row[1])-value
+        print(change)
         profits.append(change)
         value = int(row[1])
         
