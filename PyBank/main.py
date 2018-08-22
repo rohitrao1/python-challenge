@@ -1,6 +1,7 @@
 #Importing the necessary modules/libraries
 import os
 import csv
+import math
 
 #Creating an object out of the CSV file
 budget_data = os.path.join("budget_data.csv")
@@ -58,19 +59,16 @@ with open(budget_data, newline = "") as csvfile:
 
     #Average change in "Profit/Losses between months over entire period"
     avg_change = sum(profits)/len(profits)
+    
 
 #Displaying information
 print("Financial Analysis")
 print("---------------------")
 print("Total Months: " + str(total_months))
 print("Total: $" + str(total_pl))
-print("Average Change: $" + str(avg_change))
+print("Average Change: $" + str(round(avg_change,2)))
 print("Greatest Increase in Profits: " + greatest_date + " ($" + str(greatest_increase) + ")")
 print("Greatest Decrease in Profits: " + worst_date + " ($" + str(greatest_decrease) + ")")
 
-'''What's Left: 
-1. Fixing "Average Change"
-2. Pulling/pushing to Github (Save this file to desktop + Pull + Copy-paste code + Push)
-3. Exporting to txt file
-'''
+#Exporing to .txt file
 
