@@ -17,8 +17,11 @@ with open(budget_data, newline = "") as csvfile:
     csvreader = csv.reader(csvfile, delimiter = ",")
 
     #Reading the header row
-    csv_header = next(csvfile)
-    print(f"Header: {csv_header}")
+    csv_header = next(csvreader)
+    first_row = next(csvreader)
+    total_months += 1
+    total_pl += int(first_row[1])
+    # print(f"Header: {csv_header}")
     
     #Going through each row of data after the header
     for row in csvreader:
