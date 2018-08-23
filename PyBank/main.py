@@ -36,7 +36,6 @@ with open(budget_data, newline = "") as csvfile:
         
         # Calculate the change, then add it to list of changes
         change = int(row[1])-value
-        print(change)
         profits.append(change)
         value = int(row[1])
         
@@ -70,4 +69,12 @@ print("Greatest Increase in Profits: " + greatest_date + " ($" + str(greatest_in
 print("Greatest Decrease in Profits: " + worst_date + " ($" + str(greatest_decrease) + ")")
 
 #Exporing to .txt file
-
+output = open("output.txt", "w")
+line1 = "Financial Analysis"
+line2 = "---------------------"
+line3 = "Total Months: " + str(total_months)
+line4 = "Total: $" + str(total_pl)
+line5 = "Average Change: $" + str(round(avg_change,2))
+line6 = "Greatest Increase in Profits: " + greatest_date + " ($" + str(greatest_increase) + ")"
+line7 = "Greatest Decrease in Profits: " + worst_date + " ($" + str(greatest_decrease) + ")"
+output.write('{}\n{}\n{}\n{}\n{}\n{}\n{}\n'.format(line1,line2,line3,line4,line5,line6,line7))
