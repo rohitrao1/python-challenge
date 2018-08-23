@@ -3,35 +3,91 @@ import csv
 
 election_data = os.path.join("election_data.csv")
 
-# Method 1 --> Automated (and dynamic)
-total_votes = 0
+# A list to capture the names of candidates
 candidates = []
-votes = []
-voting_dict = {}
+
+# A list to capture the number of votes each candidate receives
+num_votes = []
+
+# A list to capture the percentage of total votes each candidate garners 
+percent_votes = []
+
+# A counter for the total number of votes 
+total_votes = 0
 
 with open(election_data, newline = "") as csvfile:
     csvreader = csv.reader(csvfile, delimiter = ",")
-
     csv_header = next(csvreader)
+
+    for row in csvreader:
+        # Add to our vote-counter 
+        total_votes += 1 
+
+        '''
+        If the candidate is not on our list, add his/her name to our list, along with 
+        a vote in his/her name.
+        If he/she is already on our list, we will simply add a vote in his/her
+        name 
+        '''
+        if row[2] not in candidates:
+            candidates.append(row[2])
+            index = candidates.index(row[2])
+            num_votes.append(1)
+        else:
+            index = candidates.index(row[2])
+            num_votes[index] += 1
     
-    for row in csvreader:
-        candidates.append(row[2])
+    # Add to percent_votes list 
+    percent_votes = num_votes
+    percent_votes = [(num_votes[i]/total_votes * 100) for i in num_votes]
 
-    #List of unique values (in case candidates change)
+    print(candidates)
+    print(num_votes)
+    print(percent_votes)
+
+    '''
+    
+    # List of "unique" candidates 
     candidates = list(set(candidates))
-    #Creating a dictionary
-    for candidate in candidates:
-        voting_dict[candidate] = [0,0.0]
+    print(candidates)
 
-    #Adds up number of votes for each candidate, then adds to dictionary
+    #List to keep track of votes
+    num_votes = [0 for vote in candidates]
+    print(num_votes)
+
+    # If a new candidate is added to CSV file 
     for row in csvreader:
-        for votes in voting_dict:
-            if votes == row[2]:
-                voting_dict[votes][0] += 1
+        if row[2] in candidates:
+            index = candidates.index(row[2])
+            num_votes[index] += 1
+        else:
+            candidates.append(row[2])
+            num_votes.append(0)
+            index = candidates.index(row[2])
+            num_votes[index] += 1
 
+'''
+    
+        
+    '''
+    #Dictionary of candidates, their respective number of votes, and % votes 
+    for candidate in candidates:
+        voting_dict[candidate] = [0,0.0] 
+        
     print(voting_dict)
 
+    for row in csvreader:
+        for votes in voting_dict:
+            if voting_dict[votes] == row[2]:
+                voting_dict[votes][0] += 1
+    '''
     
+                
+
+
+    # print(voting_dict) 
+
+
 '''
 #Method 2 --> Dictionaries
 total_votes = 0
@@ -72,7 +128,7 @@ automatically?
 
 
 '''
-#Method 2 --> Manual calculations 
+#Method 3 --> Manual calculations 
 
 total_votes = 0
 khan_votes = 0
