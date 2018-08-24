@@ -18,13 +18,15 @@ with open(budget_data, newline = "") as csvfile:
 
     #Reading the header row
     csv_header = next(csvreader)
+
+    #Reading the first row (so that we track the changes properly)
     first_row = next(csvreader)
     total_months += 1
     total_pl += int(first_row[1])
     value = int(first_row[1])
     # print(f"Header: {csv_header}")
     
-    #Going through each row of data after the header
+    #Going through each row of data after the header & first row 
     for row in csvreader:
         '''To Do: 
         1. Create a list to capture all changes
@@ -62,14 +64,24 @@ with open(budget_data, newline = "") as csvfile:
 #Displaying information
 print("Financial Analysis")
 print("---------------------")
-print("Total Months: " + str(total_months))
-print("Total: $" + str(total_pl))
-print("Average Change: $" + str(round(avg_change,2)))
-print("Greatest Increase in Profits: " + greatest_date + " ($" + str(greatest_increase) + ")")
-print("Greatest Decrease in Profits: " + worst_date + " ($" + str(greatest_decrease) + ")")
+print(f"Total Months: {str(total_months)}")
+print(f"Total: ${str(total_pl)}")
+print(f"Average Change: ${str(round(avg_change,2))}")
+print(f"Greatest Increase in Profits: {greatest_date} (${str(greatest_increase)})")
+print(f"Greatest Decrease in Profits: {worst_date} (${str(greatest_decrease)})")
 
 #Exporing to .txt file
 output = open("output.txt", "w")
+
+line1 = "Financial Analysis"
+line2 = "---------------------"
+line3 = str(f"Total Months: {str(total_months)}")
+line4 = str(f"Total: ${str(total_pl)}")
+line5 = str(f"Average Change: ${str(round(avg_change,2))}")
+line6 = str(f"Greatest Increase in Profits: {greatest_date} (${str(greatest_increase)})")
+line7 = str(f"Greatest Decrease in Profits: {worst_date} (${str(greatest_decrease)})")
+
+'''
 line1 = "Financial Analysis"
 line2 = "---------------------"
 line3 = "Total Months: " + str(total_months)
@@ -77,4 +89,5 @@ line4 = "Total: $" + str(total_pl)
 line5 = "Average Change: $" + str(round(avg_change,2))
 line6 = "Greatest Increase in Profits: " + greatest_date + " ($" + str(greatest_increase) + ")"
 line7 = "Greatest Decrease in Profits: " + worst_date + " ($" + str(greatest_decrease) + ")"
+'''
 output.write('{}\n{}\n{}\n{}\n{}\n{}\n{}\n'.format(line1,line2,line3,line4,line5,line6,line7))

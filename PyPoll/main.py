@@ -40,6 +40,7 @@ with open(election_data, newline = "") as csvfile:
     # Add to percent_votes list 
     for votes in num_votes:
         percentage = (votes/total_votes) * 100
+        percentage = round(percentage)
         percent_votes.append(percentage)
     
     # Find the winning candidate
@@ -47,9 +48,35 @@ with open(election_data, newline = "") as csvfile:
     index = num_votes.index(winner)
     winning_candidate = candidates[index]
 
-    print(total_votes)
-    print(candidates)
-    print(num_votes)
-    print(percent_votes)
+# Displaying results
+print("Election Results")
+print("---------------------")
+print("Total Votes: " + str(total_votes))
+for i in range(len(candidates)):
+    print(candidates[i] + ": " + str(percent_votes[i]) + " (" + str(num_votes[i]) + ")")
+print("---------------------")
+print("Winner: " + winning_candidate)
+print("---------------------")
 
-    print(winning_candidate)
+# Exporting to .txt file
+output = open("output.txt", "w")
+line1 = "Election Results"
+line2 = "---------------------"
+line3 = "Total Votes: " + str(total_votes)
+output.write('{}\n{}\n{}\n'.format(line1, line2, line3))
+for i in range(len(candidates)):
+    line = str(candidates[i] + ": " + str(percent_votes[i]) + " (" + str(num_votes[i]) + ")")
+    output.write('{}\n'.format(line))
+line4 = "---------------------"
+line5 = str("Winner: " + winning_candidate)
+line6 = "---------------------"
+output.write('{}\n{}\n{}\n'.format(line4, line5, line6))
+
+'''
+print(total_votes)
+print(candidates)
+print(num_votes)
+print(percent_votes)
+
+print(winning_candidate)
+'''
