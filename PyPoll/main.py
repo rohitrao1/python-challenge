@@ -51,32 +51,25 @@ with open(election_data, newline = "") as csvfile:
 # Displaying results
 print("Election Results")
 print("---------------------")
-print("Total Votes: " + str(total_votes))
-for i in range(len(candidates)):
-    print(candidates[i] + ": " + str(percent_votes[i]) + " (" + str(num_votes[i]) + ")")
+print(f"Total Votes: {str(total_votes)}")
 print("---------------------")
-print("Winner: " + winning_candidate)
+for i in range(len(candidates)):
+    print(f"{candidates[i]}: {str(percent_votes[i])} ({str(num_votes[i])})")
+print("---------------------")
+print(f"Winner: {winning_candidate}")
 print("---------------------")
 
 # Exporting to .txt file
 output = open("output.txt", "w")
 line1 = "Election Results"
 line2 = "---------------------"
-line3 = "Total Votes: " + str(total_votes)
-output.write('{}\n{}\n{}\n'.format(line1, line2, line3))
+line3 = str(f"Total Votes: {str(total_votes)}")
+line4 = str("---------------------")
+output.write('{}\n{}\n{}\n{}\n'.format(line1, line2, line3, line4))
 for i in range(len(candidates)):
-    line = str(candidates[i] + ": " + str(percent_votes[i]) + " (" + str(num_votes[i]) + ")")
+    line = str(f"{candidates[i]}: {str(percent_votes[i])} ({str(num_votes[i])})")
     output.write('{}\n'.format(line))
-line4 = "---------------------"
-line5 = str("Winner: " + winning_candidate)
-line6 = "---------------------"
-output.write('{}\n{}\n{}\n'.format(line4, line5, line6))
-
-'''
-print(total_votes)
-print(candidates)
-print(num_votes)
-print(percent_votes)
-
-print(winning_candidate)
-'''
+line5 = "---------------------"
+line6 = str(f"Winner: {winning_candidate}")
+line7 = "---------------------"
+output.write('{}\n{}\n{}\n'.format(line5, line6, line7))
